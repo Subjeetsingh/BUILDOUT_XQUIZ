@@ -6,6 +6,41 @@ public class Quiz{
     private String quizName;
     private List<Question> questions;
     private int finalScore;
+    public Quiz(String quizName){
+        if (quizName == null || quizName.isEmpty()){
+            System.out.println ("Quiz Name cannot be null or empty!");
+        }
+        else{
+            this.quizName=quizName;
+            this.questions=new ArrayList<Question> ();
+            this.finalScore=0;
+        }
+        
+
+        }
+      
+        public int getFinalScore(){
+            return finalScore;
+    
+        }
+
+        public String getQuizName(){
+            return quizName;
+        }
+
+        public List<Question> getQuestions(){
+            return questions;
+        }
+
+        public void addQuestion(Question question) {
+            if (question == null) {
+                System.out.println("Question cannot be null!");
+            } else {
+                this.questions.add(question);
+            }
+        }
+
+    
 
     // TODO: Implement Quiz class constructor : public Quiz(String quizName);
         // Validate: If quizName is null or empty, 
@@ -50,7 +85,9 @@ public class Quiz{
     
     public void revealAnswerKey(){
         // TODO: add loop for printing all the questions along with answers in the questions list.
+        for(int i=0;i<questions.size();i++)
         {
+            
             System.out.println("Question no. " + (i+1) + " : " + questions.get(i).getQuestionText() +
                     "\nAnswer no. " + (i+1) + " : " + questions.get(i).getAnswer());
         }
